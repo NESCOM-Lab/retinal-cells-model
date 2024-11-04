@@ -24,3 +24,6 @@ def convert_to_obj(input_filename, output_filename):
                 f.write(txt_str)
 
     asdf = 1
+
+
+convert_to_obj('./retinal_cells.swc', './testoutput.obj')
