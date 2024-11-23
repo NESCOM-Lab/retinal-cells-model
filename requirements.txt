@@ -32,3 +32,4 @@ traits==6.4.3
 traitsui==8.0.0
 tzdata==2024.2
 vtk==9.3.1
+navis==1.9.1

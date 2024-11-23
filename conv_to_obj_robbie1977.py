@@ -45,6 +45,7 @@ def create_mesh_from_swc(swc_data, minRadius=0.005):
 
             if length > 0:  # Check if the length is greater than zero before proceeding
                 direction = (end - start) / length
+                # NEXT LINE SHOULD BE MODIFIED TO CREATE SOMETHING ELSE THAN A CYLINDER WITH AVERAGE DIAMETER
                 radius = (max(node['radius'], minRadius) + max(parent_node['radius'], minRadius)) / 2
 
                 # Create the cylinder

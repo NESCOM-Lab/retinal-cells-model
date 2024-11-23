@@ -1,8 +1,20 @@
-# Program that splits .swc files with multiple somas 
-# into separate .swc files in O(n) time
+# -*- coding: utf-8 -*-
+"""
+Created on Nov 12 16:53:28 2024
+
+
+Program that splits .swc files with multiple somas 
+into separate .swc files in O(n) time
+and generates an equivalent OBJ file (lines) using navis (https://navis-org.github.io/navis/)
+
+@author: Kakolla, jmbouteiller
+"""
+
 
 import neurom
 from convert_SWC_to_OBJ_line import convert_to_obj
+from convert_SWC_to_OBJ_navis import convert_to_obj_navis
+
 # morphology = neurom.load_morphology('retinal_cells/output1.swc')
 
 
@@ -92,12 +104,14 @@ for elem in parents:
             stack.append(child_cell)
             num_neurites += 1
         
-    print(" Numer of Neurites: " + str(num_neurites))
+    print(" Number of Neurites: " + str(num_neurites))
 
     # check if the swc file is just 1 point (can't make an obj)
     if (num_neurites > 1):
-        # convert to obj
-        convert_to_obj(f"./retinal_cells/output{parent_count+1}.swc", f"./retinal_cells_obj/output{parent_count+1}.obj")
+        # convert to obj (line only)
+        #convert_to_obj(f"./retinal_cells/output{parent_count+1}.swc", f"./retinal_cells_obj/output{parent_count+1}.obj")
+        # convert to obj (mesh)
+        convert_to_obj_navis(f"./retinal_cells/output{parent_count+1}.swc", f"./retinal_cells_obj/output{parent_count+1}.obj")
 
     parent_count += 1
     output.close()
